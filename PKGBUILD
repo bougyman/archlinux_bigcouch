@@ -1,7 +1,7 @@
 # Maintainer: TJ Vanderpoel <tj@rubyists.com>
 pkgname=bigcouch-git
 pkgver=20110311
-pkgrel=1
+pkgrel=2
 pkgdesc="A highly available, fault-tolerant, clustered, mostly api-compliant version of Apache CouchDB."
 arch=(i686 x86_64)
 url="https://github.com/cloudant/bigcouch"
@@ -52,8 +52,6 @@ package() {
   cd "$srcdir/$_gitname-build"
   make dist
   install -d "$pkgdir/var/lib" "$pkgdir/var/log/bigcouch" "$pkgdir/etc"
-  msg $(ls -l)
-  msg $PWD
   cp -a rel/bigcouch "$pkgdir/var/lib/"
   rmdir "$pkgdir/var/lib/bigcouch/var/log"
   ln -s /var/log/bigcouch "$pkgdir/var/lib/bigcouch/var/log"
